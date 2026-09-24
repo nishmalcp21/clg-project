@@ -45,7 +45,7 @@ void Push(struct Node** top,int value){
 
 }
 
-intpop(struct Node** top){
+int pop(struct Node** top){
     if (*top==NULL){
         printf("stack underflow! cannot pop from an empty stack.\n");
     return -1;
