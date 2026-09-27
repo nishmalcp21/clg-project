@@ -91,11 +91,25 @@ struct node* deleteFromBeginning(struct node* head){
 struct node* deleteFromEnd(struct node* head){
     if (head==NULL){
         printf("List is already empty! nothing to delete.\n");
-    return NULL;}
-    while(temp->next->next!=NULL);
+        return NULL;
+    }
 
+    if (head->next == NULL){          
+        free(head);
+        return NULL;
+    }
+
+    struct node *temp = head;
+
+    while(temp->next->next!=NULL){
+        temp = temp->next;
+    }
+
+    free(temp->next);
+    temp->next = NULL;
+
+    return head;
 }
-
 
 
 int main(){
