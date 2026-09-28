@@ -89,27 +89,31 @@ struct node* deleteFromBeginning(struct node* head){
 }
 
 struct node* deleteFromEnd(struct node* head){
-    if (head==NULL){
+    if (head == NULL){
         printf("List is already empty! nothing to delete.\n");
         return NULL;
     }
 
-    if (head->next == NULL){          
+
+    if (head->next == NULL){
         free(head);
+        printf("last node deleted successfully.\n");
         return NULL;
     }
 
     struct node *temp = head;
 
-    while(temp->next->next!=NULL){
+    while (temp->next->next != NULL){
         temp = temp->next;
     }
 
     free(temp->next);
     temp->next = NULL;
 
+    printf("last node deleted successfully.\n");
     return head;
 }
+
 
 
 int main(){
@@ -150,6 +154,16 @@ display(insertAfternode(head,12,900));
 
 printf("\nthe linked list after deleting from beginning is: ");
 head = deleteFromBeginning(head);
+display(head);
+
+
+printf("\nthe linked list after deleting from end is: ");
+head = deleteFromEnd(head);
+display(head);
+
+return 0;
+}
+
 display(head);
 
 return 0;
